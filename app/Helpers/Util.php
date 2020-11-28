@@ -1,7 +1,8 @@
 <?php
 namespace App\Helpers;
 
-class Util{
+class Util
+{
     /**
      * Checks if the value contains any characters passed in
      *
@@ -9,11 +10,12 @@ class Util{
      * @param string $value The word being iterated on
      * @return bool
      */
-    public static function containsChar($characters, $value){
+    public static function containsChar($characters, $value)
+    {
         $stringArray = str_split($value);
         $charactersArray = str_split($characters);
-        foreach($stringArray as $char){
-            if(in_array($char, $charactersArray)){
+        foreach ($stringArray as $char) {
+            if (in_array($char, $charactersArray)) {
                 return true;
             }
         }

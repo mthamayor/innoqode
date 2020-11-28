@@ -237,22 +237,27 @@ class UserTest extends TestCase
         $response->assertStatus(422);
 
         $response->assertJson([
-            'message' => "The given data was invalid.",
-            "errors" => [
-                "first_name" => [
-                    "The first name field is required when none of middle name / last name / username / date of birth are present."
+            'message' => 'The given data was invalid.',
+            'errors' => [
+                'first_name' => [
+                    'The first name field is required when none of middle ' .
+                        'name / last name / username / date of birth are present.'
                 ],
-                "middle_name" => [
-                    "The middle name field is required when none of first name / last name / username / date of birth are present."
+                'middle_name' => [
+                    'The middle name field is required when none of first name ' .
+                        '/ last name / username / date of birth are present.'
                 ],
-                "last_name" => [
-                    "The last name field is required when none of middle name / first name / username / date of birth are present."
+                'last_name' => [
+                    'The last name field is required when none of middle name ' .
+                        '/ first name / username / date of birth are present.'
                 ],
-                "username" => [
-                    "The username field is required when none of middle name / last name / first name / date of birth are present."
+                'username' => [
+                    'The username field is required when none of middle name ' .
+                        '/ last name / first name / date of birth are present.'
                 ],
-                "date_of_birth" => [
-                    "The date of birth field is required when none of middle name / last name / username / first name are present."
+                'date_of_birth' => [
+                    'The date of birth field is required when none of middle name ' .
+                        '/ last name / username / first name are present.'
                 ]
             ]
         ]);

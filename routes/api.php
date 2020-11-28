@@ -22,7 +22,10 @@ Route::group(['middleware' => ['jsononly']], function () {
 
     Route::get('/user/{id}', [UserController::class, 'getUser'])->middleware(['user.non_existent']);
 
-    Route::patch('/user/{id}', [UserController::class, 'updateUser'])->middleware(['user.non_existent', 'user.taken_username']);
+    Route::patch(
+        '/user/{id}',
+        [UserController::class, 'updateUser']
+    )->middleware(['user.non_existent', 'user.taken_username']);
 
     Route::delete('/user/{id}', [UserController::class, 'destroyUser'])->middleware(['user.non_existent']);
 

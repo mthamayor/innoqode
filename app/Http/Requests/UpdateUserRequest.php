@@ -28,9 +28,20 @@ class UpdateUserRequest extends FormRequest
         return [
             'first_name' => ['alpha', 'required_without_all:middle_name,last_name,username,date_of_birth'],
             'middle_name' => ['alpha', 'required_without_all:first_name,last_name,username,date_of_birth'],
-            'last_name' => ['alpha', 'required_without_all:middle_name,first_name,username,date_of_birth'],
-            'username' => ['string', 'required_without_all:middle_name,last_name,first_name,date_of_birth', new Username],
-            'date_of_birth' => ['string', 'required_without_all:middle_name,last_name,username,first_name', new BirthDate]
+            'last_name' => [
+                'alpha',
+                'required_without_all:middle_name,first_name,username,date_of_birth'
+            ],
+            'username' => [
+                'string',
+                'required_without_all:middle_name,last_name,first_name,date_of_birth',
+                new Username
+            ],
+            'date_of_birth' => [
+                'string',
+                'required_without_all:middle_name,last_name,username,first_name',
+                new BirthDate
+            ]
         ];
     }
 }

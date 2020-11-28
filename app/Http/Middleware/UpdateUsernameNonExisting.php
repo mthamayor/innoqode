@@ -19,7 +19,7 @@ class UpdateUsernameNonExisting
     {
         $id = $request->route('id');
 
-        $user =  User::where('username', $request->username )->where('id', '!=', $id)->first();
+        $user =  User::where('username', $request->username)->where('id', '!=', $id)->first();
 
         if ($user) {
             return response()->json([

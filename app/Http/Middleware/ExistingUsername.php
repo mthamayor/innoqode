@@ -17,7 +17,7 @@ class ExistingUsername
      */
     public function handle(Request $request, Closure $next)
     {
-        $user =  User::where('username', $request->username )->first();
+        $user =  User::where('username', $request->username)->first();
 
         if ($user) {
             return response()->json([
