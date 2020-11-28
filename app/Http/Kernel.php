@@ -66,6 +66,5 @@ class Kernel extends HttpKernel
         'user.existing_username' => \App\Http\Middleware\ExistingUsername::class,
         'user.taken_username' => \App\Http\Middleware\UpdateUsernameNonExisting::class,
         'user.non_existent' => \App\Http\Middleware\NonExistingUser::class,
-        'user.existing' => \App\Http\Middleware\ExistingUser::class,
     ];
 }
