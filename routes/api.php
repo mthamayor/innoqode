@@ -16,8 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['jsononly']], function () {
-    Route::post('/user', [UserController::class, 'storeUser'])->middleware(['user.existing_username']);
+    Route::get('/', function () {
+        return response()->json([
+            'message' => 'Welcome to innoqode assessment api.',
+        ], 200);
+    });
     
+    Route::post('/user', [UserController::class, 'storeUser'])->middleware(['user.existing_username']);
+
     Route::get('/user', [UserController::class, 'getUsers']);
 
     Route::get('/user/{id}', [UserController::class, 'getUser'])->middleware(['user.non_existent']);

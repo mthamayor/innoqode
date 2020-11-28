@@ -316,14 +316,10 @@ class UserTest extends TestCase
         $generatedUser = $this->validUser;
 
         $user = User::factory()->create($generatedUser);
+        
+        $response = $this->patchJson(('/api/user/' . $user->id), $this->validUser2, $this->headers);
 
-        $newUsername = 'new_username';
-
-        $response = $this->patchJson(('/api/user/' . $user->id), ['username' => $newUsername], $this->headers);
-
-        $expectedResponseDataPartial = [
-            'username' => $newUsername,
-        ];
+        $expectedResponseDataPartial = $this->validUser2;
 
         $response->assertStatus(200);
 
