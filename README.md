@@ -7,7 +7,7 @@ Technical assessment
 
   
 
-[![Build Status](https://travis-ci.com/mthamayor/innoqode.svg?branch=main)](https://travis-ci.org/mthamayor/dcs_practical_assessment)
+![Build Status](https://travis-ci.com/mthamayor/innoqode.svg?branch=main)
 
 
   
