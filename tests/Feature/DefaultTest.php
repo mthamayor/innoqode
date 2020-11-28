@@ -7,11 +7,27 @@ use Tests\TestCase;
 class DefaultTest extends TestCase
 {
     /**
-     * A basic test example.
+     * A basic not found test example.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testRootApi()
+    {
+        $response = $this->get('api/');
+
+        $response->assertStatus(200);
+
+        $response->assertJson([
+            'message' => 'Welcome to innoqode assessment api.',
+        ]);
+    }
+
+    /**
+     * A basic not found test example.
+     *
+     * @return void
+     */
+    public function testEndpointNotFound()
     {
         $response = $this->get('api/undefinedRoute');
 
