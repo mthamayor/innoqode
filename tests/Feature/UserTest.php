@@ -142,7 +142,7 @@ class UserTest extends TestCase
     {
         $invalidUsername = $this->validUser;
 
-        $invalidUsername['username'] = '.mthamayor_';
+        $invalidUsername['username'] = '.m$thamayor_';
 
         $response = $this->postJson('/api/user', $invalidUsername, $this->headers);
 
@@ -218,6 +218,45 @@ class UserTest extends TestCase
                 'to' => 1,
                 'total' => 1
             ]
+        ]);
+    }
+
+    /**
+     * test GET /api/user/{id} feature when user does not exist
+     *
+     * @return void
+     */
+    public function testGetUserThatDoesNotExist()
+    {
+        $response = $this->get('/api/user/1');
+
+        $response->assertStatus(404);
+
+        $response->assertJson([
+            'message' => 'Not found.',
+            'errors' => [
+                'id' => 'User with id does not exist.'
+            ]
+        ]);
+    }
+
+    /**
+     * test GET /api/user/{id} feature with correct parameters
+     *
+     * @return void
+     */
+    public function testGetUser()
+    {
+        $generatedUser = $this->validUser;
+
+        $user = User::factory()->create($generatedUser);
+
+        $response = $this->get('/api/user/' . $user->id);
+
+        $response->assertStatus(200);
+
+        $response->assertJson([
+            'data' => $generatedUser,
         ]);
     }
 

@@ -20,6 +20,7 @@
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
+        "phpunit/php-code-coverage": "^9.2",
         "phpunit/phpunit": "^9.3.3",
         "squizlabs/php_codesniffer": "^3.5"
     },
@@ -48,6 +49,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
+
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -59,7 +61,7 @@
             "@php artisan key:generate --ansi"
         ],
         "test": [
-            "vendor/bin/phpunit"
+            "vendor/bin/phpunit --coverage-html ./coverage"
         ]
     }
 }
