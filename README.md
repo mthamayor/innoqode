@@ -61,4 +61,4 @@ You can run the test from the container with `sh scripts/test.sh` or `docker-com
 You can stop the containers by running `sh scripts/stop.sh` or `docker-compose down`
 
 ## Deployment
-A live version of the project is deployed on [heroku](https://innoqode.herokuapp.com/)
+A live version of the project is deployed on [heroku](https://innoqode.herokuapp.com/api)
